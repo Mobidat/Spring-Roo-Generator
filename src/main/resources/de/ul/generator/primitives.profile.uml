@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Documentation="http://Papyrus/schemas/Documentation/_vaU6gAEYEeCIz8iAxBJnfA/0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http://Papyrus/schemas/Documentation/_vaU6gAEYEeCIz8iAxBJnfA/0 pathmap://Papyrus.profile.uml#_vaU6ggEYEeCIz8iAxBJnfA">
+  <uml:Profile xmi:id="_v-ljMFizEeKmoOGZK4qvlQ" name="primitives">
+    <eAnnotations xmi:id="_0KPrUVizEeKmoOGZK4qvlQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <contents xmi:type="ecore:EPackage" xmi:id="_fp59QaLBEeKV__Qotck8cA" name="primitives" nsURI="http:///schemas/primitives/_fp59QKLBEeKV__Qotck8cA/8" nsPrefix="primitives">
+        <eAnnotations xmi:id="_fp59QqLBEeKV__Qotck8cA" source="PapyrusVersion">
+          <details xmi:id="_fp59Q6LBEeKV__Qotck8cA" key="Version" value="0.1.4"/>
+          <details xmi:id="_fp59RKLBEeKV__Qotck8cA" key="Comment" value="added package &quot;primitives&quot;"/>
+          <details xmi:id="_fp59RaLBEeKV__Qotck8cA" key="Copyright" value="Institut für Angewandte Informatik (InfAI) e. V. an der Universität Leipzig"/>
+          <details xmi:id="_fp59RqLBEeKV__Qotck8cA" key="Date" value="2013-04-11"/>
+          <details xmi:id="_fp59R6LBEeKV__Qotck8cA" key="Author" value="Hr. Schmidt, Johannes (IN)"/>
+        </eAnnotations>
+      </contents>
+      <contents xmi:type="ecore:EPackage" xmi:id="_sSlXgGlGEeKO6-nyvE7F-Q" name="primitives" nsURI="http:///schemas/primitives/_rz7soGlGEeKO6-nyvE7F-Q/7" nsPrefix="primitives">
+        <eAnnotations xmi:id="_sSlXkWlGEeKO6-nyvE7F-Q" source="PapyrusVersion">
+          <details xmi:id="_sSlXkmlGEeKO6-nyvE7F-Q" key="Version" value="0.1.3"/>
+          <details xmi:id="_sSlXk2lGEeKO6-nyvE7F-Q" key="Comment" value=""/>
+          <details xmi:id="_sSlXlGlGEeKO6-nyvE7F-Q" key="Copyright" value="Institut für Angewandte Informatik (InfAI) e. V. an der Universität Leipzig"/>
+          <details xmi:id="_sSlXlWlGEeKO6-nyvE7F-Q" key="Date" value="2013-01-28"/>
+          <details xmi:id="_sSlXlmlGEeKO6-nyvE7F-Q" key="Author" value="Hr. Schmidt, Johannes (IN)"/>
+        </eAnnotations>
+        <eClassifiers xmi:type="ecore:EDataType" xmi:id="_sSlXgWlGEeKO6-nyvE7F-Q" name="DateTime" instanceClassName="DateTime">
+          <eAnnotations xmi:id="_sSlXgmlGEeKO6-nyvE7F-Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_bWHXcFjAEeKmoOGZK4qvlQ"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EDataType" xmi:id="_sSlXg2lGEeKO6-nyvE7F-Q" name="String" instanceClassName="String">
+          <eAnnotations xmi:id="_sSlXhGlGEeKO6-nyvE7F-Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_TOaYcGVhEeKpIqSe6_qoVA"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EDataType" xmi:id="_sSlXhWlGEeKO6-nyvE7F-Q" name="Booelan" instanceClassName="Booelan">
+          <eAnnotations xmi:id="_sSlXhmlGEeKO6-nyvE7F-Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_QegT8GlDEeKMkf7-DrkC3A"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EDataType" xmi:id="_sSlXh2lGEeKO6-nyvE7F-Q" name="Integer" instanceClassName="Integer">
+          <eAnnotations xmi:id="_sSlXiGlGEeKO6-nyvE7F-Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_Up26EGlDEeKMkf7-DrkC3A"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EDataType" xmi:id="_sSlXiWlGEeKO6-nyvE7F-Q" name="Float" instanceClassName="Float">
+          <eAnnotations xmi:id="_sSlXimlGEeKO6-nyvE7F-Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_WeMlgGlDEeKMkf7-DrkC3A"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EDataType" xmi:id="_sSlXi2lGEeKO6-nyvE7F-Q" name="Double" instanceClassName="Double">
+          <eAnnotations xmi:id="_sSlXjGlGEeKO6-nyvE7F-Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_Xa5eUGlDEeKMkf7-DrkC3A"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EDataType" xmi:id="_sSlXjWlGEeKO6-nyvE7F-Q" name="UnsignedInterger" instanceClassName="UnsignedInterger">
+          <eAnnotations xmi:id="_sSlXjmlGEeKO6-nyvE7F-Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_aKc00GlDEeKMkf7-DrkC3A"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EDataType" xmi:id="_sSlXj2lGEeKO6-nyvE7F-Q" name="Byte" instanceClassName="Byte">
+          <eAnnotations xmi:id="_sSlXkGlGEeKO6-nyvE7F-Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_doawgGlDEeKMkf7-DrkC3A"/>
+        </eClassifiers>
+      </contents>
+      <contents xmi:type="ecore:EPackage" xmi:id="_fXJtwGlEEeKMkf7-DrkC3A" name="primitives" nsURI="http:///schemas/primitives/_ey_30GlEEeKMkf7-DrkC3A/6" nsPrefix="primitives">
+        <eAnnotations xmi:id="_fXJt32lEEeKMkf7-DrkC3A" source="PapyrusVersion">
+          <details xmi:id="_fXJt4GlEEeKMkf7-DrkC3A" key="Version" value="0.1.2"/>
+          <details xmi:id="_fXJt4WlEEeKMkf7-DrkC3A" key="Comment" value=""/>
+          <details xmi:id="_fXJt4mlEEeKMkf7-DrkC3A" key="Copyright" value="Institut für Angewandte Informatik (InfAI) e. V. an der Universität Leipzig"/>
+          <details xmi:id="_fXJt42lEEeKMkf7-DrkC3A" key="Date" value="2013-01-28"/>
+          <details xmi:id="_fXJt5GlEEeKMkf7-DrkC3A" key="Author" value="Hr. Schmidt, Johannes (IN)"/>
+        </eAnnotations>
+        <eClassifiers xmi:type="ecore:EDataType" xmi:id="_fXJtzWlEEeKMkf7-DrkC3A" name="DateTime" instanceClassName="DateTime">
+          <eAnnotations xmi:id="_fXJtzmlEEeKMkf7-DrkC3A" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_bWHXcFjAEeKmoOGZK4qvlQ"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EDataType" xmi:id="_fXJtz2lEEeKMkf7-DrkC3A" name="String" instanceClassName="String">
+          <eAnnotations xmi:id="_fXJt0GlEEeKMkf7-DrkC3A" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_TOaYcGVhEeKpIqSe6_qoVA"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EDataType" xmi:id="_fXJt02lEEeKMkf7-DrkC3A" name="Booelan" instanceClassName="Booelan">
+          <eAnnotations xmi:id="_fXJt1GlEEeKMkf7-DrkC3A" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_QegT8GlDEeKMkf7-DrkC3A"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EDataType" xmi:id="_fXJt1WlEEeKMkf7-DrkC3A" name="Integer" instanceClassName="Integer">
+          <eAnnotations xmi:id="_fXJt1mlEEeKMkf7-DrkC3A" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_Up26EGlDEeKMkf7-DrkC3A"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EDataType" xmi:id="_fXJt12lEEeKMkf7-DrkC3A" name="Float" instanceClassName="Float">
+          <eAnnotations xmi:id="_fXJt2GlEEeKMkf7-DrkC3A" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_WeMlgGlDEeKMkf7-DrkC3A"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EDataType" xmi:id="_fXJt2WlEEeKMkf7-DrkC3A" name="Double" instanceClassName="Double">
+          <eAnnotations xmi:id="_fXJt2mlEEeKMkf7-DrkC3A" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_Xa5eUGlDEeKMkf7-DrkC3A"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EDataType" xmi:id="_fXJt22lEEeKMkf7-DrkC3A" name="UnsignedInterger" instanceClassName="UnsignedInterger">
+          <eAnnotations xmi:id="_fXJt3GlEEeKMkf7-DrkC3A" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_aKc00GlDEeKMkf7-DrkC3A"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EDataType" xmi:id="_fXJt3WlEEeKMkf7-DrkC3A" name="Byte" instanceClassName="Byte">
+          <eAnnotations xmi:id="_fXJt3mlEEeKMkf7-DrkC3A" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_doawgGlDEeKMkf7-DrkC3A"/>
+        </eClassifiers>
+      </contents>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_I_TQEHzOEeKF8PVOFLCz0g" name="DurationUnit">
+      <ownedComment xmi:id="_eYKrEHzOEeKF8PVOFLCz0g">
+        <body>Einheit für eine Zeitdauer</body>
+      </ownedComment>
+      <ownedLiteral xmi:id="_KMhRIHzOEeKF8PVOFLCz0g" name="Second"/>
+      <ownedLiteral xmi:id="_LzLF4HzOEeKF8PVOFLCz0g" name="Millisecond"/>
+      <ownedLiteral xmi:id="_NPjkUHzOEeKF8PVOFLCz0g" name="Hour"/>
+      <ownedLiteral xmi:id="_QFqOwHzOEeKF8PVOFLCz0g" name="Day"/>
+      <ownedLiteral xmi:id="_RFoeAHzOEeKF8PVOFLCz0g" name="Week"/>
+      <ownedLiteral xmi:id="_SUe2wHzOEeKF8PVOFLCz0g" name="Year"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_Up26EGlDEeKMkf7-DrkC3A" name="Integer"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_Om9oYKK7EeK0YL0tIEH-ow" name="UnsignedLong"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_6P67gHwSEeKwv6akkBWSCA" name="Time">
+      <ownedComment xmi:id="_5Soi4HzNEeKF8PVOFLCz0g">
+        <body>Zeitangabe</body>
+      </ownedComment>
+    </packagedElement>
+    <packagedElement xmi:type="uml:DataType" xmi:id="_-bIGsHzNEeKF8PVOFLCz0g" name="Duration">
+      <ownedComment xmi:id="_ZDxZQHzOEeKF8PVOFLCz0g">
+        <body>Angabe eines Zeitraums</body>
+      </ownedComment>
+      <ownedAttribute xmi:id="_A2c5oHzOEeKF8PVOFLCz0g" name="timeUnit" type="_I_TQEHzOEeKF8PVOFLCz0g">
+        <ownedComment xmi:id="_bJ0fwHzOEeKF8PVOFLCz0g">
+          <body>Angabe der Zeiteinheit</body>
+        </ownedComment>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_Fgb8gHzOEeKF8PVOFLCz0g" name="value" type="_WeMlgGlDEeKMkf7-DrkC3A">
+        <ownedComment xmi:id="_aMYAEHzOEeKF8PVOFLCz0g">
+          <body>Zahlenwert</body>
+        </ownedComment>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:DataType" xmi:id="_RbfeYJ09EeKhVNwePUaduw" name="UID">
+      <ownedComment xmi:id="_Tw3aUJ09EeKhVNwePUaduw">
+        <body>Global Unique Identifier</body>
+      </ownedComment>
+    </packagedElement>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_kHg4YKK-EeKV__Qotck8cA" name="SignedLong"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_aKc00GlDEeKMkf7-DrkC3A" name="UnsignedInteger"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_TOaYcGVhEeKpIqSe6_qoVA" name="String"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_QegT8GlDEeKMkf7-DrkC3A" name="Boolean"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_WeMlgGlDEeKMkf7-DrkC3A" name="Float"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_-O8PcHwKEeKwv6akkBWSCA" name="Binary"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_doawgGlDEeKMkf7-DrkC3A" name="Byte"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_Xa5eUGlDEeKMkf7-DrkC3A" name="Double"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_NR8WMKK7EeK0YL0tIEH-ow" name="Long"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_5MrV0HwSEeKwv6akkBWSCA" name="Date">
+      <ownedComment xmi:id="_4O8RQHzNEeKF8PVOFLCz0g">
+        <body>Datumsangabe ohne Uhrzeit</body>
+      </ownedComment>
+    </packagedElement>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_bWHXcFjAEeKmoOGZK4qvlQ" name="DateTime">
+      <ownedComment xmi:id="_3CxZEHzNEeKF8PVOFLCz0g">
+        <body>Datentyp mit Datum und Uhrzeit</body>
+      </ownedComment>
+    </packagedElement>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_iuZJUKK-EeKV__Qotck8cA" name="SignedInteger"/>
+    <profileApplication xmi:id="_3McScHzNEeKF8PVOFLCz0g">
+      <eAnnotations xmi:id="_3MmDcHzNEeKF8PVOFLCz0g" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://Papyrus.profile.uml#_vaU6ggEYEeCIz8iAxBJnfA"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://Papyrus.profile.uml#_H9068AEYEeCIz8iAxBJnfA"/>
+    </profileApplication>
+  </uml:Profile>
+  <Documentation:Documentation xmi:id="_3MvNYHzNEeKF8PVOFLCz0g" base_Comment="_3CxZEHzNEeKF8PVOFLCz0g"/>
+  <Documentation:Documentation xmi:id="_4O8RQXzNEeKF8PVOFLCz0g" base_Comment="_4O8RQHzNEeKF8PVOFLCz0g"/>
+  <Documentation:Documentation xmi:id="_5Soi4XzNEeKF8PVOFLCz0g" base_Comment="_5Soi4HzNEeKF8PVOFLCz0g"/>
+  <Documentation:Documentation xmi:id="_ZDxZQXzOEeKF8PVOFLCz0g" base_Comment="_ZDxZQHzOEeKF8PVOFLCz0g"/>
+  <Documentation:Documentation xmi:id="_aMYAEXzOEeKF8PVOFLCz0g" base_Comment="_aMYAEHzOEeKF8PVOFLCz0g"/>
+  <Documentation:Documentation xmi:id="_bJ0fwXzOEeKF8PVOFLCz0g" base_Comment="_bJ0fwHzOEeKF8PVOFLCz0g"/>
+  <Documentation:Documentation xmi:id="_eYKrEXzOEeKF8PVOFLCz0g" base_Comment="_eYKrEHzOEeKF8PVOFLCz0g"/>
+  <Documentation:Documentation xmi:id="_TxAkQJ09EeKhVNwePUaduw" base_Comment="_Tw3aUJ09EeKhVNwePUaduw"/>
+</xmi:XMI>

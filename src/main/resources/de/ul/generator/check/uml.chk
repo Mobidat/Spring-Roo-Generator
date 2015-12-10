@@ -1,0 +1,70 @@
+extension xtend::check::uml;
+
+/* Class checks */
+context uml::Class WARNING
+      identCheck() + "A class shall provide at least one attribute" :
+     getAllAttributes().size > 0;
+
+context uml::Class ERROR
+    identCheck() + "Property names of class attributes must be unique":
+    getAllAttributes().forAll(a1| attribute.notExists(a2| a1 != a2 && a1.name == a2.name ));
+
+context uml::Class ERROR
+    identCheck() + "Multiple Inheritance ist not allowed" :
+    parents().size < 2;
+
+context uml::Class ERROR
+    identCheck() + "A class name must not contain white spaces" :
+    !name.contains(" ");
+
+context uml::Class ERROR
+    identCheck() + "A class name must be alphanumeric" :
+    name.isAlphaNumeric();
+
+context uml::Class ERROR
+    identCheck() + "A class name must start with an upper case letter" :
+    name == name.toFirstUpper();
+
+/* Property checks */
+context uml::Property ERROR
+    identCheck() + "Property type is not set!" :
+    type != Void && type != null && type.name != "";
+
+context uml::Property ERROR
+    identCheck() + "Property name must not contain white spaces" :
+    !name.contains(" ");
+
+context uml::Property ERROR
+    identCheck() + "A property name must start with a lower case letter" :
+    name == name.toFirstLower();
+
+context uml::Property ERROR
+    identCheck() + "Property name must be alphanumeric" :
+    name.isAlphaNumeric();
+
+/* Enumeration checks */
+context uml::Enumeration ERROR
+    identCheck() + "Enumeration literals must be unique":
+    ownedLiteral.forAll(a1| attribute.notExists(a2| a1 != a2 && a1.name == a2.name ));
+
+context uml::Enumeration ERROR
+    identCheck() + "No enumeration literals found":
+    ownedLiteral.size > 0;
+
+context uml::EnumerationLiteral WARNING
+    identCheck() + "Enumeration literals must be named in upper case":
+    name == name.toUpperCase();
+
+context uml::EnumerationLiteral ERROR
+    identCheck() + "Enumeration literals must not contain white spaces":
+    !name.contains(" ");
+
+/* Package checks */
+context uml::Package WARNING
+    identCheck() + "package name should be lower case":
+    name == name.toLowerCase();
+
+/* Association checks */
+context uml::Property if association != null ERROR
+    identCheck() + "Association property must not have a default value":
+    defaultValue == null;

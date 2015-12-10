@@ -1,0 +1,8 @@
+String name(uml::NamedElement c):
+	"--name " + c.name;
+	
+String clazz(uml::NamedElement c):
+	"--class ~." + c.name;
+	
+String name(uml::EnumerationLiteral c):
+	"--name " + c.name.toUpperCase();

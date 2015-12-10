@@ -1,0 +1,42 @@
+<workflow>
+	<!-- set up EMF for standalone execution -->
+	<bean class="org.eclipse.emf.mwe.utils.StandaloneSetup" >
+		<platformUri value="."/>
+	</bean>
+	
+	<bean class="org.eclipse.xtend.typesystem.uml2.Setup">
+    	<standardUML2Setup value="true"/>
+    </bean>
+
+	<!-- load model and store it in slot 'model' -->
+	<component class="org.eclipse.xtend.typesystem.emf.XmiReader">
+		<modelFile value="model/model.uml" />
+		<outputSlot value="model" />
+	</component>
+
+	<!-- check model -->
+	<component id="umlcheck" class="org.eclipse.xtend.check.CheckComponent" warnIfNothingChecked="false">
+		<metaModel id="mm_uml" class="org.eclipse.xtend.typesystem.uml2.UML2MetaModel"/>
+        <metaModel id="mm_profile" class="org.eclipse.xtend.typesystem.uml2.profile.ProfileMetaModel">
+            <profile value="profile/primitives.profile.uml"/>
+        </metaModel>
+		
+		<checkFile value="check::uml" />
+		<emfAllChildrenSlot value="model" />
+	</component>
+
+    <component id="generator" class="org.eclipse.xpand2.Generator">
+		<fileEncoding value="UTF-8"/>
+		<metaModel id="mm_uml" class="org.eclipse.xtend.typesystem.uml2.UML2MetaModel"/>
+		<metaModel id="mm_profile" class="org.eclipse.xtend.typesystem.uml2.profile.ProfileMetaModel">
+			<profile value="profile/primitives.profile.uml"/>
+		</metaModel>
+
+		<expand value="xpand::main::root FOR model"/>
+		<outlet overwrite="true">
+			<path value="generated" />	
+			<fileEncoding value='UTF-8'/>
+			<vetoStrategy class="org.eclipse.xpand2.output.NoChangesVetoStrategy"/>
+		</outlet>		
+	</component>
+</workflow>

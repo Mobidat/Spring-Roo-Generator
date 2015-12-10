@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:RooAngularProfile="http:///schemas/RooAngularProfile/_qyoYUObWEeSfy9l1ALL1qA/30" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http:///schemas/RooAngularProfile/_qyoYUObWEeSfy9l1ALL1qA/30 ../profile/rooangular.profile.uml">
+  <uml:Model xmi:id="_37V1cOQtEeS4UJB194NJoQ" name="project">
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_mJyNcOQvEeS4UJB194NJoQ">
+      <importedPackage xmi:type="uml:Profile" href="../profile/primitives.profile.uml#_v-ljMFizEeKmoOGZK4qvlQ"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Package" xmi:id="__unkgOQtEeS4UJB194NJoQ" name="de">
+      <packagedElement xmi:type="uml:Package" xmi:id="_zv8pMHgAEeWFK5g8k60awQ" name="ul">
+        <packagedElement xmi:type="uml:Package" xmi:id="_1-I_EHgAEeWFK5g8k60awQ" name="petclinic">
+          <packagedElement xmi:type="uml:Enumeration" xmi:id="_cXxzcHgBEeWFK5g8k60awQ" name="PetType">
+            <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_fPoxYHgBEeWFK5g8k60awQ" name="DOG"/>
+            <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_ffM3YHgBEeWFK5g8k60awQ" name="CAT"/>
+            <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_fvG7oHgBEeWFK5g8k60awQ" name="BIRD"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Enumeration" xmi:id="_jpvlMHgBEeWFK5g8k60awQ" name="Specialty">
+            <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_kcVfwHgBEeWFK5g8k60awQ" name="CARDIOLOGY"/>
+            <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_lEj9YHgBEeWFK5g8k60awQ" name="DENTISTRY"/>
+            <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_lVul4HgBEeWFK5g8k60awQ" name="NUTRITION"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_tC9XUHgBEeWFK5g8k60awQ" name="Pet">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_ulMPsHveEeWtQaA__Llkuw" name="sendReminders" visibility="private">
+              <type xmi:type="uml:PrimitiveType" href="../profile/primitives.profile.uml#_QegT8GlDEeKMkf7-DrkC3A"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_uzEToHveEeWtQaA__Llkuw" value="1"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_uzEToXveEeWtQaA__Llkuw" value="1"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_2ZAKQHveEeWtQaA__Llkuw" name="name" visibility="private">
+              <type xmi:type="uml:PrimitiveType" href="../profile/primitives.profile.uml#_TOaYcGVhEeKpIqSe6_qoVA"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2ta7EHveEeWtQaA__Llkuw" value="1"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_2ta7EXveEeWtQaA__Llkuw" value="1"/>
+              <defaultValue xmi:type="uml:LiteralString" xmi:id="_l5kAoHzAEeWtQaA__Llkuw">
+                <value xsi:nil="true"/>
+              </defaultValue>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="__gGRoHveEeWtQaA__Llkuw" name="weight" visibility="private">
+              <type xmi:type="uml:PrimitiveType" href="../profile/primitives.profile.uml#_WeMlgGlDEeKMkf7-DrkC3A"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="__rozQHveEeWtQaA__Llkuw" value="1"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="__rozQXveEeWtQaA__Llkuw" value="1"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_NIrnMHvfEeWtQaA__Llkuw" name="owner" visibility="private" type="_2sy_YHgBEeWFK5g8k60awQ" association="_NIsOQHvfEeWtQaA__Llkuw">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NIrnMXvfEeWtQaA__Llkuw"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NIrnMnvfEeWtQaA__Llkuw" value="1"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_XdZYQHvfEeWtQaA__Llkuw" name="type" visibility="private" type="_cXxzcHgBEeWFK5g8k60awQ">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_XxbukHvfEeWtQaA__Llkuw" value="1"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_XxbukXvfEeWtQaA__Llkuw" value="1"/>
+            </ownedAttribute>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_xOx3gHgBEeWFK5g8k60awQ" name="Visit">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_IxnVwHveEeWtQaA__Llkuw" name="description" visibility="private">
+              <type xmi:type="uml:PrimitiveType" href="../profile/primitives.profile.uml#_TOaYcGVhEeKpIqSe6_qoVA"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_I_wfcHveEeWtQaA__Llkuw"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_I_wfcXveEeWtQaA__Llkuw" value="1"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_RSJMYHveEeWtQaA__Llkuw" name="visitDate" visibility="private">
+              <type xmi:type="uml:PrimitiveType" href="../profile/primitives.profile.uml#_5MrV0HwSEeKwv6akkBWSCA"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_RfsgMHveEeWtQaA__Llkuw" value="1"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_RfsgMXveEeWtQaA__Llkuw" value="1"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_dcuS4HveEeWtQaA__Llkuw" name="pet" visibility="private" type="_tC9XUHgBEeWFK5g8k60awQ" association="_dcu58HveEeWtQaA__Llkuw">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_dcuS4XveEeWtQaA__Llkuw" value="1"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_dcuS4nveEeWtQaA__Llkuw" value="1"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_nbpaIHveEeWtQaA__Llkuw" name="vet" visibility="private" type="_1gPssHgBEeWFK5g8k60awQ" association="_nbqBMHveEeWtQaA__Llkuw">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_nbpaIXveEeWtQaA__Llkuw"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_nbpaInveEeWtQaA__Llkuw" value="1"/>
+            </ownedAttribute>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_x46ZoHgBEeWFK5g8k60awQ" name="AbstractPerson">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_J1knEHgCEeWFK5g8k60awQ" name="firstName" visibility="private">
+              <type xmi:type="uml:PrimitiveType" href="../profile/primitives.profile.uml#_TOaYcGVhEeKpIqSe6_qoVA"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KP-EEHgCEeWFK5g8k60awQ"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KP-rIHgCEeWFK5g8k60awQ" value="1"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_cT9N8HgCEeWFK5g8k60awQ" name="lastName" visibility="private">
+              <type xmi:type="uml:PrimitiveType" href="../profile/primitives.profile.uml#_TOaYcGVhEeKpIqSe6_qoVA"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_dCeg0HgCEeWFK5g8k60awQ" value="1"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_dCeg0XgCEeWFK5g8k60awQ" value="1"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_bXBnIHvdEeWtQaA__Llkuw" name="address" visibility="private">
+              <type xmi:type="uml:PrimitiveType" href="../profile/primitives.profile.uml#_TOaYcGVhEeKpIqSe6_qoVA"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_bl3UYHvdEeWtQaA__Llkuw" value="1"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_bl37cHvdEeWtQaA__Llkuw" value="1"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_h-56EHvdEeWtQaA__Llkuw" name="city" visibility="private">
+              <type xmi:type="uml:PrimitiveType" href="../profile/primitives.profile.uml#_TOaYcGVhEeKpIqSe6_qoVA"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iNUwkHvdEeWtQaA__Llkuw" value="1"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_iNVXoHvdEeWtQaA__Llkuw" value="1"/>
+              <defaultValue xmi:type="uml:LiteralString" xmi:id="_iNV-sHvdEeWtQaA__Llkuw">
+                <value xsi:nil="true"/>
+              </defaultValue>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_pKJ_0HvdEeWtQaA__Llkuw" name="telephone" visibility="private">
+              <type xmi:type="uml:PrimitiveType" href="../profile/primitives.profile.uml#_TOaYcGVhEeKpIqSe6_qoVA"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_pdiO0HvdEeWtQaA__Llkuw" value="1"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_pdiO0XvdEeWtQaA__Llkuw" value="1"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_sCdpsHvdEeWtQaA__Llkuw" name="homepage" visibility="private">
+              <type xmi:type="uml:PrimitiveType" href="../profile/primitives.profile.uml#_TOaYcGVhEeKpIqSe6_qoVA"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_sOX-wHvdEeWtQaA__Llkuw"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_sOYl0HvdEeWtQaA__Llkuw" value="1"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_z2CTsHvdEeWtQaA__Llkuw" name="email" visibility="private">
+              <type xmi:type="uml:PrimitiveType" href="../profile/primitives.profile.uml#_TOaYcGVhEeKpIqSe6_qoVA"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_0GIlMHvdEeWtQaA__Llkuw" value="1"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_0GJMQHvdEeWtQaA__Llkuw" value="1"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_71caQHvdEeWtQaA__Llkuw" name="birthday" visibility="private">
+              <type xmi:type="uml:PrimitiveType" href="../profile/primitives.profile.uml#_5MrV0HwSEeKwv6akkBWSCA"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_8CBdsHvdEeWtQaA__Llkuw" value="1"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_8CBdsXvdEeWtQaA__Llkuw" value="1"/>
+            </ownedAttribute>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_1gPssHgBEeWFK5g8k60awQ" name="Vet">
+            <generalization xmi:type="uml:Generalization" xmi:id="_7DkyYHgBEeWFK5g8k60awQ" general="_x46ZoHgBEeWFK5g8k60awQ"/>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_gT_lgHvfEeWtQaA__Llkuw" name="employedSince" visibility="private">
+              <type xmi:type="uml:PrimitiveType" href="../profile/primitives.profile.uml#_5MrV0HwSEeKwv6akkBWSCA"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_g11HQHvfEeWtQaA__Llkuw" value="1"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_g11HQXvfEeWtQaA__Llkuw" value="1"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_oIzloHvfEeWtQaA__Llkuw" name="specialty" visibility="private" type="_jpvlMHgBEeWFK5g8k60awQ">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_oVv1cHvfEeWtQaA__Llkuw" value="1"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_oVv1cXvfEeWtQaA__Llkuw" value="1"/>
+            </ownedAttribute>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_2sy_YHgBEeWFK5g8k60awQ" name="Owner">
+            <generalization xmi:type="uml:Generalization" xmi:id="_72dA0HgBEeWFK5g8k60awQ" general="_x46ZoHgBEeWFK5g8k60awQ"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_dcu58HveEeWtQaA__Llkuw" name="visit_pet_1" memberEnd="_dcu58XveEeWtQaA__Llkuw _dcuS4HveEeWtQaA__Llkuw">
+            <ownedEnd xmi:type="uml:Property" xmi:id="_dcu58XveEeWtQaA__Llkuw" name="visits" type="_xOx3gHgBEeWFK5g8k60awQ" association="_dcu58HveEeWtQaA__Llkuw">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_dcu58nveEeWtQaA__Llkuw"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_dcu583veEeWtQaA__Llkuw" value="*"/>
+            </ownedEnd>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_nbqBMHveEeWtQaA__Llkuw" name="visit_vet_1" memberEnd="_nbqBMXveEeWtQaA__Llkuw _nbpaIHveEeWtQaA__Llkuw">
+            <ownedEnd xmi:type="uml:Property" xmi:id="_nbqBMXveEeWtQaA__Llkuw" name="visits" type="_xOx3gHgBEeWFK5g8k60awQ" association="_nbqBMHveEeWtQaA__Llkuw">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_nbqBMnveEeWtQaA__Llkuw"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_nbqBM3veEeWtQaA__Llkuw" value="*"/>
+            </ownedEnd>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_NIsOQHvfEeWtQaA__Llkuw" name="pet_owner_1" memberEnd="_NIs1UHvfEeWtQaA__Llkuw _NIrnMHvfEeWtQaA__Llkuw">
+            <ownedEnd xmi:type="uml:Property" xmi:id="_NIs1UHvfEeWtQaA__Llkuw" name="pet" type="_tC9XUHgBEeWFK5g8k60awQ" association="_NIsOQHvfEeWtQaA__Llkuw">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NIs1UXvfEeWtQaA__Llkuw"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NIs1UnvfEeWtQaA__Llkuw" value="*"/>
+            </ownedEnd>
+          </packagedElement>
+        </packagedElement>
+      </packagedElement>
+      <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_HkpFkOQuEeS4UJB194NJoQ">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Hky2kOQuEeS4UJB194NJoQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <references xmi:type="ecore:EPackage" href="../profile/primitives.profile.uml#_fp59QaLBEeKV__Qotck8cA"/>
+        </eAnnotations>
+        <appliedProfile xmi:type="uml:Profile" href="../profile/primitives.profile.uml#_v-ljMFizEeKmoOGZK4qvlQ"/>
+      </profileApplication>
+    </packagedElement>
+  </uml:Model>
+  <RooAngularProfile:RooAngularPackage xmi:id="_KXV2sOQuEeS4UJB194NJoQ" baseUrl="http://localhost:8080" base_Package="__unkgOQtEeS4UJB194NJoQ"/>
+</xmi:XMI>

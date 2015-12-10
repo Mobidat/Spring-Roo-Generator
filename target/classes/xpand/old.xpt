@@ -1,0 +1,50 @@
+«EXTENSION org::eclipse::xtend::util::stdlib::io»
+
+«DEFINE root FOR uml::Model-»
+    «EXPAND root FOREACH ownedElement.typeSelect(uml::Package)-»
+«ENDDEFINE-»
+
+«DEFINE root FOR uml::Package-»
+    «EXPAND handle FOREACH ownedElement»
+    «EXPAND root FOREACH nestedPackage-»
+    «EXPAND assos FOREACH ownedElement.typeSelect(uml::Association)
+        .select(e|e.name.startsWith("D"))»
+    «EXPAND test("test") FOREACH ownedElement.typeSelect(uml::Class)
+        .select(e|e.getAllAttributes().reject(e|e.association == null))»
+    
+    «IF name.endsWith("test")»
+        «info("JUHU")»
+    «ENDIF»
+    «FOREACH ownedElement.typeSelect(uml::Association) AS l»
+        «EXPAND assos FOR l»
+    «ENDFOREACH»
+«ENDDEFINE-»
+
+«DEFINE test(String test) FOR uml::Class»
+«FOREACH ownedAttribute AS a»
+    «info(a.name)->""»
+    «info(a.class)»
+    «info(a.type)»
+«ENDFOREACH»
+«ENDDEFINE»
+
+«DEFINE assos FOR uml::Association»
+«FILE "test.txt"»
+«memberEnd.get(0).name»
+«name»
+function a () {
+    foo-«name»
+}
+«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE handle FOR uml::Class»
+«info("Create Class " + (isAbstract ? " abstract " : "") + name)»
+«ENDDEFINE»
+
+«DEFINE handle FOR uml::Enumeration»
+«info("Create Enum " + name)»
+«ENDDEFINE»
+
+«DEFINE handle FOR uml::Element»
+«ENDDEFINE»

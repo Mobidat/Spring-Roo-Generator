@@ -1,0 +1,20 @@
+extension org::eclipse::xtend::util::stdlib::io;
+
+boolean isAlphaNumeric(String s):
+    s.matches("^[a-zA-Z0-9]+$");
+
+String identCheck(uml::Class c) :
+    "UML CLASS " + c.qualifiedName + ": ";
+
+String identCheck(uml::Property p) :
+    "UML PROPERTY " + p.qualifiedName + ": ";
+
+String identCheck(uml::Enumeration e) :
+    "UML ENUMERATION " + e.qualifiedName + ": ";
+
+String identCheck(uml::EnumerationLiteral l) :
+    "UML ENUMERATION LITERAL " + l.qualifiedName + ": ";
+
+String identCheck(uml::Package p) :
+    "UML Package " + p.qualifiedName + ": ";
+

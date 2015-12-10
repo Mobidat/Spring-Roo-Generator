@@ -1,0 +1,78 @@
+«EXTENSION xtend::cmd»
+
+«EXTENSION org::eclipse::xtend::util::stdlib::io»
+
+// ============================================= Script ====================================================
+// =================================== TODO: handle Associations ===========================================
+
+«DEFINE root FOR uml::Model-»
+«FILE name + ".txt"»// Project Setup
+project --topLevelPackage «EXPAND fqnroot FOREACH ownedElement.typeSelect(uml::Package)-»
+
+jpa setup --provider HIBERNATE --database MYSQL
+
+// Enumerations
+«EXPAND handleEnums FOREACH ownedElement»// Classes
+«EXPAND handleClasses FOREACH ownedElement»
+// Attributes
+«EXPAND handleAttributes("") FOREACH ownedElement»// Associations
+«ENDFILE»
+«ENDDEFINE-»
+
+// =========================================================================================================
+
+// Fully Qualified Name
+«DEFINE fqnroot FOR uml::Package-»
+«name»«EXPAND fqn FOREACH nestedPackage-»
+«ENDDEFINE-»
+
+«DEFINE fqn FOR uml::Package-»
+.«name»«EXPAND fqn FOREACH nestedPackage-»
+«ENDDEFINE-»
+
+// Enumerations
+«DEFINE handleEnums FOR uml::Enumeration»enum type «clazz(this)» 
+«EXPAND handle FOREACH ownedElement.typeSelect(uml::EnumerationLiteral)»
+«ENDDEFINE»
+
+«DEFINE handle FOR uml::EnumerationLiteral»enum constant «name(this)»
+«ENDDEFINE»
+
+«DEFINE handleEnums FOR uml::Package»«EXPAND handleEnums FOREACH ownedElement»«ENDDEFINE»
+«DEFINE handleEnums FOR uml::Element»«ENDDEFINE»
+
+// Classes
+«DEFINE handleClasses FOR uml::Class-»
+entity jpa «clazz(this)»
+«ENDDEFINE-»
+
+«DEFINE handleClasses FOR uml::Package»«EXPAND handleClasses FOREACH ownedElement»«ENDDEFINE»
+«DEFINE handleClasses FOR uml::Element»«ENDDEFINE»
+
+// Attributes
+«DEFINE handleAttributes(String parent) FOR uml::Class»«EXPAND handleAttributes(name) FOREACH ownedElement»
+«ENDDEFINE»
+
+«DEFINE handleAttributes(String parent) FOR uml::Property»field «EXPAND formatType(type, association)» --fieldName «name»«IF type.qualifiedName.endsWith("String")» --sizeMin «lower» --sizeMax «upper»«ENDIF» --class ~.«parent»
+«ENDDEFINE»
+
+// Attributes - Types
+«DEFINE formatType(uml::PrimitiveType raw, uml::Association asso) FOR uml::Property»«IF type.qualifiedName.endsWith("Float")»number --type Float«ELSEIF type.qualifiedName.endsWith("Date")»date --type string«ELSE»«raw.qualifiedName.split("::").last().toLowerCase()»«ENDIF»«ENDDEFINE»
+«DEFINE formatType(uml::Type raw, uml::Association asso) FOR uml::Property»«IF asso == null»enum«ELSE»reference«ENDIF» --type ~.«raw.qualifiedName.split("::").last()»«ENDDEFINE»
+
+«DEFINE handleAttributes(String parent) FOR uml::Package»«EXPAND handleAttributes("") FOREACH ownedElement»«ENDDEFINE»
+«DEFINE handleAttributes(String parent) FOR uml::Element»«ENDDEFINE»
+
+«DEFINE handleProperties FOR uml::Property»«type.qualifiedName»«ENDDEFINE»
+«DEFINE handleProperties FOR uml::Element»«ENDDEFINE»
+
+// Associations
+«DEFINE handleAssociations FOR uml::Association»field set --fieldName «name»
+«ENDDEFINE»
+
+«DEFINE handleAssociations FOR uml::Package»«EXPAND handleAssociations FOREACH ownedElement»«ENDDEFINE»
+«DEFINE handleAssociations FOR uml::Element»«ENDDEFINE»
+
+// Other
+«DEFINE handle FOR uml::Element»
+«ENDDEFINE»
