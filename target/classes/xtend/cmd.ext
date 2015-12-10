@@ -1,8 +1,29 @@
-String name(uml::NamedElement c):
+String nameArg(uml::NamedElement c):
 	"--name " + c.name;
 	
-String clazz(uml::NamedElement c):
+String classArg(uml::NamedElement c):
 	"--class ~." + c.name;
 	
-String name(uml::EnumerationLiteral c):
-	"--name " + c.name.toUpperCase();
+String fieldNameArg(uml::NamedElement c):
+	"--fieldName " + c.name;
+	
+String formatType(uml::Property p):
+	getAttr(p.type, p.association);
+	
+String getAttr(uml::Type t, uml::Association a):
+	(a == null ? 
+		"enum" : 
+		"reference") 
+	+ " --type ~." + t.qualifiedName.split("::").last();
+	
+String getAttr(uml::PrimitiveType t, uml::Association a):
+	t.qualifiedName.endsWith("Float") ? 
+		"number --type Float" : 
+		(t.qualifiedName.endsWith("Date") ? 
+			"date --type string" : 
+			t.qualifiedName.split("::").last().toLowerCase());
+	
+String sizeMinMax(uml::Property p):
+	p.type.qualifiedName.endsWith("String") ? 
+		"--sizeMin " + p.lower + " --sizeMax " + p.upper :
+		"";

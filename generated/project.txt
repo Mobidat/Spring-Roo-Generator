@@ -1,36 +1,35 @@
 // Project Setup
 project --topLevelPackage de.ul.petclinic
-jpa setup --provider HIBERNATE --database MYSQL
+jpa setup --database H2_IN_MEMORY --provider OPENJPA
 
 // Enumerations
-enum type --class ~.pettype 
-enum constant --NAME DOG
-enum constant --NAME CAT
-enum constant --NAME BIRD
-
-enum type --class ~.specialty 
-enum constant --NAME CARDIOLOGY
-enum constant --NAME DENTISTRY
-enum constant --NAME NUTRITION
+enum type --class ~.PetType 
+enum constant --name DOG
+enum constant --name CAT
+enum constant --name BIRD
+enum type --class ~.Specialty 
+enum constant --name CARDIOLOGY
+enum constant --name DENTISTRY
+enum constant --name NUTRITION
 
 // Classes
-entity jpa --class ~.pet
-entity jpa --class ~.visit
-entity jpa --class ~.abstractperson
-entity jpa --class ~.vet
-entity jpa --class ~.owner
+entity jpa --class ~.Pet
+entity jpa --class ~.Visit
+entity jpa --class ~.AbstractPerson
+entity jpa --class ~.Vet
+entity jpa --class ~.Owner
 
 // Attributes
-field boolean --fieldName sendReminders --class ~.Pet
+field boolean --fieldName sendReminders  --class ~.Pet
 field string --fieldName name --sizeMin 1 --sizeMax 1 --class ~.Pet
-field number --type Float --fieldName weight --class ~.Pet
-field reference --type ~.Owner --fieldName owner --class ~.Pet
-field enum --type ~.PetType --fieldName type --class ~.Pet
+field number --type Float --fieldName weight  --class ~.Pet
+field reference --type ~.Owner --fieldName owner  --class ~.Pet
+field enum --type ~.PetType --fieldName type  --class ~.Pet
 
 field string --fieldName description --sizeMin 0 --sizeMax 1 --class ~.Visit
-field date --type string --fieldName visitDate --class ~.Visit
-field reference --type ~.Pet --fieldName pet --class ~.Visit
-field reference --type ~.Vet --fieldName vet --class ~.Visit
+field date --type string --fieldName visitDate  --class ~.Visit
+field reference --type ~.Pet --fieldName pet  --class ~.Visit
+field reference --type ~.Vet --fieldName vet  --class ~.Visit
 
 field string --fieldName firstName --sizeMin 0 --sizeMax 1 --class ~.AbstractPerson
 field string --fieldName lastName --sizeMin 1 --sizeMax 1 --class ~.AbstractPerson
@@ -39,10 +38,11 @@ field string --fieldName city --sizeMin 1 --sizeMax 1 --class ~.AbstractPerson
 field string --fieldName telephone --sizeMin 1 --sizeMax 1 --class ~.AbstractPerson
 field string --fieldName homepage --sizeMin 0 --sizeMax 1 --class ~.AbstractPerson
 field string --fieldName email --sizeMin 1 --sizeMax 1 --class ~.AbstractPerson
-field date --type string --fieldName birthday --class ~.AbstractPerson
+field date --type string --fieldName birthday  --class ~.AbstractPerson
 
-field date --type string --fieldName employedSince --class ~.Vet
-field enum --type ~.Specialty --fieldName specialty --class ~.Vet
+field date --type string --fieldName employedSince  --class ~.Vet
+field enum --type ~.Specialty --fieldName specialty  --class ~.Vet
+
 
 
 // Associations
