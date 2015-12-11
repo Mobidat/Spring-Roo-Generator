@@ -1,29 +1,38 @@
+// name snippet
 String nameArg(uml::NamedElement c):
 	"--name " + c.name;
-	
+
+// class snippet	
 String classArg(uml::NamedElement c):
 	"--class ~." + c.name;
-	
+
+// fieldName snippet	
 String fieldNameArg(uml::NamedElement c):
 	"--fieldName " + c.name;
-	
+
+// attribute type	
 String formatType(uml::Property p):
 	getAttr(p.type, p.association);
-	
+
+// size snippet
+String sizeMinMax(uml::Property p):
+	p.type.qualifiedName.endsWith("String") ? 
+		"--sizeMin " + p.lower + " --sizeMax " + p.upper + " " : "";
+
+// helper: Type	
 String getAttr(uml::Type t, uml::Association a):
 	(a == null ? 
 		"enum" : 
 		"reference") 
 	+ " --type ~." + t.qualifiedName.split("::").last();
-	
+
+// helper: PrimitiveType	
 String getAttr(uml::PrimitiveType t, uml::Association a):
 	t.qualifiedName.endsWith("Float") ? 
 		"number --type Float" : 
 		(t.qualifiedName.endsWith("Date") ? 
 			"date --type string" : 
 			t.qualifiedName.split("::").last().toLowerCase());
-	
-String sizeMinMax(uml::Property p):
-	p.type.qualifiedName.endsWith("String") ? 
-		"--sizeMin " + p.lower + " --sizeMax " + p.upper :
-		"";
+			
+String getMemberEnd(uml::Association a):
+	"--type ~." + a.memberEnd.type.getQualifiedName().get(0).split("::").last();

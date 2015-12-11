@@ -3,7 +3,7 @@
 «EXTENSION org::eclipse::xtend::util::stdlib::io»
 
 // ============================================= Script ====================================================
-// =================================== TODO: handle Associations ===========================================
+// =================================== TODO: handle Associations? ==========================================
 
 «DEFINE root FOR uml::Model-»
 «FILE name + ".txt"-»
@@ -19,8 +19,6 @@ jpa setup --database H2_IN_MEMORY --provider OPENJPA
 
 // Attributes
 «EXPAND handleAttributes("") FOREACH ownedElement-»
-
-// Associations
 «ENDFILE»
 «ENDDEFINE-»
 
@@ -62,19 +60,20 @@ entity jpa «classArg(this)»
 «ENDDEFINE-»
 
 «DEFINE handleAttributes(String parent) FOR uml::Property-»
-field «formatType(this)» «fieldNameArg(this)» «sizeMinMax(this)» --class ~.«parent»
+field «formatType(this)» «fieldNameArg(this)» «sizeMinMax(this)»--class ~.«parent»
 «ENDDEFINE-»
 
 «DEFINE handleAttributes(String parent) FOR uml::Package-»«EXPAND handleAttributes("") FOREACH ownedElement-»«ENDDEFINE-»
 «DEFINE handleAttributes(String parent) FOR uml::Element-»«ENDDEFINE-»
 
 // Associations
-«DEFINE handleAssociations FOR uml::Association»field set --fieldName «name»
-«ENDDEFINE»
+«DEFINE handleAssociations FOR uml::Association-»
+field set «fieldNameArg(this)» «getMemberEnd(this)»
+«ENDDEFINE-»
 
-«DEFINE handleAssociations FOR uml::Package»«EXPAND handleAssociations FOREACH ownedElement»«ENDDEFINE»
-«DEFINE handleAssociations FOR uml::Element»«ENDDEFINE»
+«DEFINE handleAssociations FOR uml::Package-»«EXPAND handleAssociations FOREACH ownedElement-»«ENDDEFINE-»
+«DEFINE handleAssociations FOR uml::Element-»«ENDDEFINE-»
 
-// Other
+// Other elements
 «DEFINE handle FOR uml::Element-»
 «ENDDEFINE-»
