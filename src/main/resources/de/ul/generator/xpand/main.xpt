@@ -1,15 +1,13 @@
 «EXTENSION xtend::cmd»
-
 «EXTENSION org::eclipse::xtend::util::stdlib::io»
 
-// ============================================= Script ====================================================
-// =================================== TODO: handle Associations? ==========================================
+// ============================================== Write File ===============================================
 
 «DEFINE root FOR uml::Model-»
 «FILE name + ".txt"-»
 // Project Setup
-project --topLevelPackage «EXPAND fqn FOREACH ownedElement.typeSelect(uml::Package)»
-jpa setup --database H2_IN_MEMORY --provider OPENJPA
+«EXPAND handleFQN FOREACH ownedElement.typeSelect(uml::Package)-»
+«jpaSetup()»
 
 // Enumerations
 «EXPAND handleEnums FOREACH ownedElement-»
@@ -18,29 +16,25 @@ jpa setup --database H2_IN_MEMORY --provider OPENJPA
 «EXPAND handleClasses FOREACH ownedElement-»
 
 // Attributes
-«EXPAND handleAttributes("") FOREACH ownedElement-»
-«ENDFILE»
+«EXPAND handleAttributes FOREACH ownedElement-»
+«ENDFILE-»
 «ENDDEFINE-»
 
 // =========================================================================================================
 
 // Fully Qualified Name
-«DEFINE fqn FOR uml::Package-»
-«name»«EXPAND fqn2 FOREACH nestedPackage-»
-«ENDDEFINE-»
-
-«DEFINE fqn2 FOR uml::Package-»
-.«name»«EXPAND fqn2 FOREACH nestedPackage-»
+«DEFINE handleFQN FOR uml::Package-»
+«createProject(this)»
 «ENDDEFINE-»
 
 // Enumerations
 «DEFINE handleEnums FOR uml::Enumeration-»
-enum type «classArg(this)» 
-«EXPAND handle FOREACH ownedElement.typeSelect(uml::EnumerationLiteral)-»
+«createEnum(this)»
+«EXPAND handleEnumLit FOREACH ownedElement.typeSelect(uml::EnumerationLiteral)-»
 «ENDDEFINE-»
 
-«DEFINE handle FOR uml::EnumerationLiteral-»
-enum constant «nameArg(this)»
+«DEFINE handleEnumLit FOR uml::EnumerationLiteral-»
+«createEnumLit(this)»
 «ENDDEFINE-»
 
 «DEFINE handleEnums FOR uml::Package-»«EXPAND handleEnums FOREACH ownedElement-»«ENDDEFINE-»
@@ -48,32 +42,31 @@ enum constant «nameArg(this)»
 
 // Classes
 «DEFINE handleClasses FOR uml::Class-»
-entity jpa «classArg(this)»
+«createClassJPA(this)»
 «ENDDEFINE-»
 
-«DEFINE handleClasses FOR uml::Package»«EXPAND handleClasses FOREACH ownedElement»«ENDDEFINE»
-«DEFINE handleClasses FOR uml::Element»«ENDDEFINE»
+«DEFINE handleClasses FOR uml::Package-»«EXPAND handleClasses FOREACH ownedElement-»«ENDDEFINE-»
+«DEFINE handleClasses FOR uml::Element-»«ENDDEFINE-»
 
 // Attributes
-«DEFINE handleAttributes(String parent) FOR uml::Class-»
-«EXPAND handleAttributes(name) FOREACH ownedElement»
+«DEFINE handleAttributes FOR uml::Class-»
+«EXPAND handleAttributes FOREACH ownedElement»
 «ENDDEFINE-»
 
-«DEFINE handleAttributes(String parent) FOR uml::Property-»
-field «formatType(this)» «fieldNameArg(this)» «sizeMinMax(this)»--class ~.«parent»
+«DEFINE handleAttributes FOR uml::Property-»
+«createAttribute(this)»
 «ENDDEFINE-»
 
-«DEFINE handleAttributes(String parent) FOR uml::Package-»«EXPAND handleAttributes("") FOREACH ownedElement-»«ENDDEFINE-»
-«DEFINE handleAttributes(String parent) FOR uml::Element-»«ENDDEFINE-»
+«DEFINE handleAttributes FOR uml::Package-»«EXPAND handleAttributes FOREACH ownedElement-»«ENDDEFINE-»
+«DEFINE handleAttributes FOR uml::Element-»«ENDDEFINE-»
 
 // Associations
 «DEFINE handleAssociations FOR uml::Association-»
-field set «fieldNameArg(this)» «getMemberEnd(this)»
+«createAssociation(this)»
 «ENDDEFINE-»
 
 «DEFINE handleAssociations FOR uml::Package-»«EXPAND handleAssociations FOREACH ownedElement-»«ENDDEFINE-»
 «DEFINE handleAssociations FOR uml::Element-»«ENDDEFINE-»
 
 // Other elements
-«DEFINE handle FOR uml::Element-»
-«ENDDEFINE-»
+«DEFINE handle FOR uml::Element-»«ENDDEFINE-»

@@ -1,14 +1,57 @@
-// name snippet
-String nameArg(uml::NamedElement c):
-	"--name " + c.name;
+// ================================================================================================================
+// Commands
+// ================================================================================================================
 
-// class snippet	
-String classArg(uml::NamedElement c):
-	"--class ~." + c.name;
+// project
+String createProject(uml::Package p):
+	JAVA de.ul.generator.helper.GeneratorHelper.getFQN(org.eclipse.uml2.uml.Package);
+	
+// jpa setup
+String jpaSetup():
+	"jpa setup --database H2_IN_MEMORY --provider OPENJPA";
 
-// fieldName snippet	
-String fieldNameArg(uml::NamedElement c):
-	"--fieldName " + c.name;
+// enumeration
+String createEnum(uml::Enumeration e):
+	"enum type " + classArg(e);
+	
+// enumeration literal
+String createEnumLit(uml::EnumerationLiteral el):
+	"enum constant " + nameArg(el);
+
+// class
+String createClass(uml::Class c):
+	"class " + classArg(c);
+
+// class JPA
+String createClassJPA(uml::Class c):
+	"entity jpa " + classArg(c);
+	
+// constructor
+String createConstructor(uml::Class c):
+	"constructor " + classArg(c);
+
+// attribute
+String createAttribute(uml::Property p):
+	"field " + formatType(p) + " " + fieldNameArg(p) + " " + sizeMinMax(p) + "--class ~." + ((uml::Class)p.owner).name;
+
+// association
+String createAssociation(uml::Association a):
+	"field set " + fieldNameArg(a) + " " + getMemberEnd(a);
+	
+// equals
+String createEquals(uml::Class c):
+	"equals " + classArg(c);
+	
+// JSON
+String createJSON():
+	"json all";
+
+String createJSON(uml::Class c):
+	"json add " + classArg(c);
+
+// ================================================================================================================
+// Helper
+// ================================================================================================================
 
 // attribute type	
 String formatType(uml::Property p):
@@ -21,18 +64,27 @@ String sizeMinMax(uml::Property p):
 
 // helper: Type	
 String getAttr(uml::Type t, uml::Association a):
-	(a == null ? 
-		"enum" : 
-		"reference") 
-	+ " --type ~." + t.qualifiedName.split("::").last();
+	(a == null ? "enum" : "reference") +
+	" --type ~." + t.qualifiedName.split("::").last();
 
 // helper: PrimitiveType	
 String getAttr(uml::PrimitiveType t, uml::Association a):
-	t.qualifiedName.endsWith("Float") ? 
-		"number --type Float" : 
-		(t.qualifiedName.endsWith("Date") ? 
-			"date --type string" : 
+	t.qualifiedName.endsWith("Float") ? "number --type Float" : 
+		(t.qualifiedName.endsWith("Date") ? "date --type string" : 
 			t.qualifiedName.split("::").last().toLowerCase());
 			
+// helper: memberEnd
 String getMemberEnd(uml::Association a):
 	"--type ~." + a.memberEnd.type.getQualifiedName().get(0).split("::").last();
+	
+// name snippet
+String nameArg(uml::NamedElement x):
+	"--name " + x.name;
+
+// class snippet	
+String classArg(uml::NamedElement x):
+	"--class ~." + x.name;
+
+// fieldName snippet	
+String fieldNameArg(uml::NamedElement x):
+	"--fieldName " + x.name;

@@ -3,11 +3,11 @@ project --topLevelPackage de.ul.petclinic
 jpa setup --database H2_IN_MEMORY --provider OPENJPA
 
 // Enumerations
-enum type --class ~.PetType 
+enum type --class ~.PetType
 enum constant --name DOG
 enum constant --name CAT
 enum constant --name BIRD
-enum type --class ~.Specialty 
+enum type --class ~.Specialty
 enum constant --name CARDIOLOGY
 enum constant --name DENTISTRY
 enum constant --name NUTRITION

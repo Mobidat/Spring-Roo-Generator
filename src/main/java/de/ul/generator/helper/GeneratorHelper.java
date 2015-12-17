@@ -1,18 +1,19 @@
 package de.ul.generator.helper;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import org.eclipse.uml2.uml.Element;
+import org.eclipse.uml2.uml.Package;
 
 public class GeneratorHelper {
-
-	public static String now() {
-		return now("yyyy/MM/dd HH:mm:ss");
-	}
-	
-	public static String now(String format) {
-		DateFormat dateFormat = new SimpleDateFormat(format);
-		Date date = new Date();
-		return dateFormat.format(date);
+	public static String getFQN(Package p) {
+		String name = p.getName();
+		
+		Element child = p.getOwnedElements().get(0);
+		
+		while(child instanceof Package) {
+			name += "." + ((Package)child).getName();
+			child = child.getOwnedElements().get(0);
+		}
+		
+		return "project --topLevelPackage " + name;
 	}
 }
