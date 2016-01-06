@@ -9,6 +9,14 @@ String createProject(uml::Package p):
 // jpa setup
 String jpaSetup():
 	"jpa setup --database H2_IN_MEMORY --provider OPENJPA";
+	
+// web mvc setup
+String webMvcSetup():
+	"web mvc setup";
+
+// web mvc finder
+String webMvcFinder():
+	"web mvc finder all";
 
 // enumeration
 String createEnum(uml::Enumeration e):
@@ -32,7 +40,7 @@ String createConstructor(uml::Class c):
 
 // attribute
 String createAttribute(uml::Property p):
-	"field " + formatType(p) + " " + fieldNameArg(p) + " " + sizeMinMax(p) + "--class ~." + ((uml::Class)p.owner).name;
+	"field " + formatType(p) + " " + fieldNameArg(p) + " " + sizeMinMax(p) + classArg((uml::Class)p.owner);
 
 // association
 String createAssociation(uml::Association a):
