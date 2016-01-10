@@ -28,11 +28,11 @@ String createEnumLit(uml::EnumerationLiteral el):
 
 // class
 String createClass(uml::Class c):
-	"class " + classArg(c);
+	"class " + classArg(c) + abstractArg(c);
 
 // class JPA
 String createClassJPA(uml::Class c):
-	"entity jpa " + classArg(c);
+	"entity jpa " + classArg(c) + abstractArg(c);
 	
 // constructor
 String createConstructor(uml::Class c):
@@ -60,6 +60,10 @@ String createJSON(uml::Class c):
 // ================================================================================================================
 // Helper
 // ================================================================================================================
+
+// abstract
+String abstractArg(uml::Class c):
+	c.isAbstract ? " --abstract" : "";
 
 // attribute type	
 String formatType(uml::Property p):

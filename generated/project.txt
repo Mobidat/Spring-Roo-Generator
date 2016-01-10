@@ -15,7 +15,7 @@ enum constant --name NUTRITION
 // Classes
 entity jpa --class ~.Pet
 entity jpa --class ~.Visit
-entity jpa --class ~.AbstractPerson
+entity jpa --class ~.AbstractPerson --abstract
 entity jpa --class ~.Vet
 entity jpa --class ~.Owner
 

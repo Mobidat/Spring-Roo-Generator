@@ -65,7 +65,7 @@
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_nbpaInveEeWtQaA__Llkuw" value="1"/>
             </ownedAttribute>
           </packagedElement>
-          <packagedElement xmi:type="uml:Class" xmi:id="_x46ZoHgBEeWFK5g8k60awQ" name="AbstractPerson">
+          <packagedElement xmi:type="uml:Class" xmi:id="_x46ZoHgBEeWFK5g8k60awQ" name="AbstractPerson" isAbstract="true">
             <ownedAttribute xmi:type="uml:Property" xmi:id="_J1knEHgCEeWFK5g8k60awQ" name="firstName" visibility="private">
               <type xmi:type="uml:PrimitiveType" href="../profile/primitives.profile.uml#_TOaYcGVhEeKpIqSe6_qoVA"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KP-EEHgCEeWFK5g8k60awQ"/>
