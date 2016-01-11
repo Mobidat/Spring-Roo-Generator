@@ -16,31 +16,31 @@ enum constant --name NUTRITION
 entity jpa --class ~.Pet
 entity jpa --class ~.Visit
 entity jpa --class ~.AbstractPerson --abstract
-entity jpa --class ~.Vet
-entity jpa --class ~.Owner
+entity jpa --class ~.Vet --extends ~.AbstractPerson
+entity jpa --class ~.Owner --extends ~.AbstractPerson
 
 // Attributes
-field boolean --fieldName sendReminders --class ~.Pet
-field string --fieldName name --sizeMin 1 --sizeMax 1 --class ~.Pet
-field number --type Float --fieldName weight --class ~.Pet
+field boolean --fieldName sendReminders --notNull --class ~.Pet
+field string --fieldName name --notNull --class ~.Pet
+field number --type Float --fieldName weight --notNull --class ~.Pet
 field reference --type ~.Owner --fieldName owner --class ~.Pet
-field enum --type ~.PetType --fieldName type --class ~.Pet
+field enum --type ~.PetType --fieldName type --notNull --class ~.Pet
 
-field string --fieldName description --sizeMin 0 --sizeMax 1 --class ~.Visit
-field date --type string --fieldName visitDate --class ~.Visit
-field reference --type ~.Pet --fieldName pet --class ~.Visit
+field string --fieldName description --class ~.Visit
+field date --type string --fieldName visitDate --notNull --class ~.Visit
+field reference --type ~.Pet --fieldName pet --notNull --class ~.Visit
 field reference --type ~.Vet --fieldName vet --class ~.Visit
 
-field string --fieldName firstName --sizeMin 0 --sizeMax 1 --class ~.AbstractPerson
-field string --fieldName lastName --sizeMin 1 --sizeMax 1 --class ~.AbstractPerson
-field string --fieldName address --sizeMin 1 --sizeMax 1 --class ~.AbstractPerson
-field string --fieldName city --sizeMin 1 --sizeMax 1 --class ~.AbstractPerson
-field string --fieldName telephone --sizeMin 1 --sizeMax 1 --class ~.AbstractPerson
-field string --fieldName homepage --sizeMin 0 --sizeMax 1 --class ~.AbstractPerson
-field string --fieldName email --sizeMin 1 --sizeMax 1 --class ~.AbstractPerson
-field date --type string --fieldName birthday --class ~.AbstractPerson
+field string --fieldName firstName --class ~.AbstractPerson
+field string --fieldName lastName --notNull --class ~.AbstractPerson
+field string --fieldName address --notNull --class ~.AbstractPerson
+field string --fieldName city --notNull --class ~.AbstractPerson
+field string --fieldName telephone --notNull --class ~.AbstractPerson
+field string --fieldName homepage --class ~.AbstractPerson
+field string --fieldName email --notNull --class ~.AbstractPerson
+field date --type string --fieldName birthday --notNull --class ~.AbstractPerson
 
-field date --type string --fieldName employedSince --class ~.Vet
-field enum --type ~.Specialty --fieldName specialty --class ~.Vet
+field date --type string --fieldName employedSince --notNull --class ~.Vet
+field enum --type ~.Specialty --fieldName specialty --notNull --class ~.Vet
 
 

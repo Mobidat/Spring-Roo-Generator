@@ -28,11 +28,11 @@ String createEnumLit(uml::EnumerationLiteral el):
 
 // class
 String createClass(uml::Class c):
-	"class " + classArg(c) + abstractArg(c);
+	"class " + classArg(c) + abstractArg(c) + extendsArg(c);
 
 // class JPA
 String createClassJPA(uml::Class c):
-	"entity jpa " + classArg(c) + abstractArg(c);
+	"entity jpa " + classArg(c) + abstractArg(c) + extendsArg(c);
 	
 // constructor
 String createConstructor(uml::Class c):
@@ -61,9 +61,13 @@ String createJSON(uml::Class c):
 // Helper
 // ================================================================================================================
 
-// abstract
+// abstract argument
 String abstractArg(uml::Class c):
 	c.isAbstract ? " --abstract" : "";
+
+// extends argument
+String extendsArg(uml::Class c):
+	c.generalization.isEmpty ? "" : " --extends ~." + (c.generalization.get(0)).general.name;
 
 // attribute type	
 String formatType(uml::Property p):
@@ -71,8 +75,7 @@ String formatType(uml::Property p):
 
 // size snippet
 String sizeMinMax(uml::Property p):
-	p.type.qualifiedName.endsWith("String") ? 
-		"--sizeMin " + p.lower + " --sizeMax " + p.upper + " " : "";
+	p.lower > 0 ? "--notNull " : "";
 
 // helper: Type	
 String getAttr(uml::Type t, uml::Association a):
