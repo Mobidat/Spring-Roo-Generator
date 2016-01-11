@@ -1,8 +1,8 @@
 // ================================================================================================================
-// Commands
+// roo commands
 // ================================================================================================================
 
-// project
+// project setup with FQN
 String createProject(uml::Package p):
 	JAVA de.ul.generator.helper.GeneratorHelper.getFQN(org.eclipse.uml2.uml.Package);
 	
@@ -17,6 +17,14 @@ String webMvcSetup():
 // web mvc finder
 String webMvcFinder():
 	"web mvc finder all";
+	
+// finder add
+String createFinder(uml::Class c, String s):
+	"finder add " + classArg(c) + " --finderName " + s;
+	
+// finder add
+String finderList(uml::Class c, List[String] l):
+	"finder list " + classArg(c) + " --filter " + l;
 
 // enumeration
 String createEnum(uml::Enumeration e):
@@ -50,15 +58,16 @@ String createAssociation(uml::Association a):
 String createEquals(uml::Class c):
 	"equals " + classArg(c);
 	
-// JSON
+// JSON all
 String createJSON():
 	"json all";
 
+// JSON add
 String createJSON(uml::Class c):
 	"json add " + classArg(c);
 
 // ================================================================================================================
-// Helper
+// helper functions
 // ================================================================================================================
 
 // abstract argument
@@ -69,37 +78,37 @@ String abstractArg(uml::Class c):
 String extendsArg(uml::Class c):
 	c.generalization.isEmpty ? "" : " --extends ~." + (c.generalization.get(0)).general.name;
 
-// attribute type	
+// attribute type
 String formatType(uml::Property p):
 	getAttr(p.type, p.association);
 
-// size snippet
+// size argument
 String sizeMinMax(uml::Property p):
 	p.lower > 0 ? "--notNull " : "";
 
-// helper: Type	
+// type helper
 String getAttr(uml::Type t, uml::Association a):
 	(a == null ? "enum" : "reference") +
 	" --type ~." + t.qualifiedName.split("::").last();
 
-// helper: PrimitiveType	
+// PrimitiveType helper	
 String getAttr(uml::PrimitiveType t, uml::Association a):
 	t.qualifiedName.endsWith("Float") ? "number --type Float" : 
 		(t.qualifiedName.endsWith("Date") ? "date --type string" : 
 			t.qualifiedName.split("::").last().toLowerCase());
 			
-// helper: memberEnd
+// memberEnd helper
 String getMemberEnd(uml::Association a):
 	"--type ~." + a.memberEnd.type.getQualifiedName().get(0).split("::").last();
 	
-// name snippet
+// name argument
 String nameArg(uml::NamedElement x):
 	"--name " + x.name;
 
-// class snippet	
+// class argument	
 String classArg(uml::NamedElement x):
 	"--class ~." + x.name;
 
-// fieldName snippet	
+// fieldName argument
 String fieldNameArg(uml::NamedElement x):
 	"--fieldName " + x.name;

@@ -1,7 +1,9 @@
 «EXTENSION xtend::cmd»
 «EXTENSION org::eclipse::xtend::util::stdlib::io»
 
-// ============================================== Write File ===============================================
+// main function
+// creates the roo script
+// handles the project setup, enumerations, classes and attributes
 
 «DEFINE root FOR uml::Model-»
 «FILE name + ".txt"-»
@@ -20,14 +22,12 @@
 «ENDFILE-»
 «ENDDEFINE-»
 
-// =========================================================================================================
-
-// Fully Qualified Name
+// return the fully qualified name
 «DEFINE handleFQN FOR uml::Package-»
 «createProject(this)»
 «ENDDEFINE-»
 
-// Enumerations
+// return enumerations and enumeration literals
 «DEFINE handleEnums FOR uml::Enumeration-»
 «createEnum(this)»
 «EXPAND handleEnumLit FOREACH ownedElement.typeSelect(uml::EnumerationLiteral)-»
@@ -40,7 +40,7 @@
 «DEFINE handleEnums FOR uml::Package-»«EXPAND handleEnums FOREACH ownedElement-»«ENDDEFINE-»
 «DEFINE handleEnums FOR uml::Element-»«ENDDEFINE-»
 
-// Classes
+// return classes
 «DEFINE handleClasses FOR uml::Class-»
 «createClassJPA(this)»
 «ENDDEFINE-»
@@ -48,7 +48,7 @@
 «DEFINE handleClasses FOR uml::Package-»«EXPAND handleClasses FOREACH ownedElement-»«ENDDEFINE-»
 «DEFINE handleClasses FOR uml::Element-»«ENDDEFINE-»
 
-// Attributes
+// return attributes
 «DEFINE handleAttributes FOR uml::Class-»
 «EXPAND handleAttributes FOREACH ownedElement»
 «ENDDEFINE-»
@@ -60,7 +60,7 @@
 «DEFINE handleAttributes FOR uml::Package-»«EXPAND handleAttributes FOREACH ownedElement-»«ENDDEFINE-»
 «DEFINE handleAttributes FOR uml::Element-»«ENDDEFINE-»
 
-// Associations
+// return associations (currently unused)
 «DEFINE handleAssociations FOR uml::Association-»
 «createAssociation(this)»
 «ENDDEFINE-»
@@ -68,5 +68,5 @@
 «DEFINE handleAssociations FOR uml::Package-»«EXPAND handleAssociations FOREACH ownedElement-»«ENDDEFINE-»
 «DEFINE handleAssociations FOR uml::Element-»«ENDDEFINE-»
 
-// Other elements
+// other
 «DEFINE handle FOR uml::Element-»«ENDDEFINE-»

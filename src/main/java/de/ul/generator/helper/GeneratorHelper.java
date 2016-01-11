@@ -4,6 +4,10 @@ import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.Package;
 
 public class GeneratorHelper {
+	
+	/*
+	 * loop through all packages and return the fully qualified name
+	 */
 	public static String getFQN(Package p) {
 		String name = p.getName();
 		
